@@ -1,0 +1,10 @@
+﻿body {
+}
+.cajatexto{
+    outline:none;
+    border: 1px;
+    transition:.1s;
+}
+.cajatexto:hover {
+        border: solid 3px #7ED7C1;
+}

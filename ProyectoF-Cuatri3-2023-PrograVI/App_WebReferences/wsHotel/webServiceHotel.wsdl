@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="metCalcularHospedaje">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="douTarifa" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="intDias" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intAdultos" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="intNiños" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="metCalcularHospedajeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="metCalcularHospedajeResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="metCalcularAlimentacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="douHospedaje" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTipoAlimenta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="metCalcularAlimentacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="metCalcularAlimentacionResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="metCalcularImpuestos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="douHospedaje" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="douAlimentacion" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="metCalcularImpuestosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="metCalcularImpuestosResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="metCalcularTotal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="douHospedaje" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="douAlimentacion" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="douImpuestos" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="metCalcularTotalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="metCalcularTotalResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="metCalcularHospedajeSoapIn">
+    <wsdl:part name="parameters" element="tns:metCalcularHospedaje" />
+  </wsdl:message>
+  <wsdl:message name="metCalcularHospedajeSoapOut">
+    <wsdl:part name="parameters" element="tns:metCalcularHospedajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="metCalcularAlimentacionSoapIn">
+    <wsdl:part name="parameters" element="tns:metCalcularAlimentacion" />
+  </wsdl:message>
+  <wsdl:message name="metCalcularAlimentacionSoapOut">
+    <wsdl:part name="parameters" element="tns:metCalcularAlimentacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="metCalcularImpuestosSoapIn">
+    <wsdl:part name="parameters" element="tns:metCalcularImpuestos" />
+  </wsdl:message>
+  <wsdl:message name="metCalcularImpuestosSoapOut">
+    <wsdl:part name="parameters" element="tns:metCalcularImpuestosResponse" />
+  </wsdl:message>
+  <wsdl:message name="metCalcularTotalSoapIn">
+    <wsdl:part name="parameters" element="tns:metCalcularTotal" />
+  </wsdl:message>
+  <wsdl:message name="metCalcularTotalSoapOut">
+    <wsdl:part name="parameters" element="tns:metCalcularTotalResponse" />
+  </wsdl:message>
+  <wsdl:portType name="webServiceHotelSoap">
+    <wsdl:operation name="metCalcularHospedaje">
+      <wsdl:input message="tns:metCalcularHospedajeSoapIn" />
+      <wsdl:output message="tns:metCalcularHospedajeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="metCalcularAlimentacion">
+      <wsdl:input message="tns:metCalcularAlimentacionSoapIn" />
+      <wsdl:output message="tns:metCalcularAlimentacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="metCalcularImpuestos">
+      <wsdl:input message="tns:metCalcularImpuestosSoapIn" />
+      <wsdl:output message="tns:metCalcularImpuestosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="metCalcularTotal">
+      <wsdl:input message="tns:metCalcularTotalSoapIn" />
+      <wsdl:output message="tns:metCalcularTotalSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="webServiceHotelSoap" type="tns:webServiceHotelSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="metCalcularHospedaje">
+      <soap:operation soapAction="http://tempuri.org/metCalcularHospedaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="metCalcularAlimentacion">
+      <soap:operation soapAction="http://tempuri.org/metCalcularAlimentacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="metCalcularImpuestos">
+      <soap:operation soapAction="http://tempuri.org/metCalcularImpuestos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="metCalcularTotal">
+      <soap:operation soapAction="http://tempuri.org/metCalcularTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="webServiceHotelSoap12" type="tns:webServiceHotelSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="metCalcularHospedaje">
+      <soap12:operation soapAction="http://tempuri.org/metCalcularHospedaje" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="metCalcularAlimentacion">
+      <soap12:operation soapAction="http://tempuri.org/metCalcularAlimentacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="metCalcularImpuestos">
+      <soap12:operation soapAction="http://tempuri.org/metCalcularImpuestos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="metCalcularTotal">
+      <soap12:operation soapAction="http://tempuri.org/metCalcularTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="webServiceHotel">
+    <wsdl:port name="webServiceHotelSoap" binding="tns:webServiceHotelSoap">
+      <soap:address location="http://localhost:63636/webServiceHotel.asmx" />
+    </wsdl:port>
+    <wsdl:port name="webServiceHotelSoap12" binding="tns:webServiceHotelSoap12">
+      <soap12:address location="http://localhost:63636/webServiceHotel.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

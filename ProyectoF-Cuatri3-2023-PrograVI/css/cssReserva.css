@@ -1,0 +1,10 @@
+﻿body {
+}
+txt {
+    transition: .1s;
+    outline: none;
+}
+.txt:hover {
+    border: solid 1px #7ED7C1;
+    outline: none;
+}
